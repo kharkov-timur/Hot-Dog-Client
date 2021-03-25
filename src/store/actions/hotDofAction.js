@@ -1,18 +1,19 @@
 import { CREATE_PRODUCT, PRODUCT_ERROR } from '../types'
 import axios from 'axios'
 
-export const addHotDog = (name, price, description, img) => async dispatch => {
+export const addHotDog = (name, price, description, imgUrl) => async dispatch => {
   try {
-    await axios
+    const res = await axios
       .post('http://localhost:5000/api/product', {
         name,
         price,
         description,
-        img
+        imgUrl
       })
+    console.log(res)
     dispatch({
       type: CREATE_PRODUCT,
-      payload: { name, price, description, img }
+      payload: res.data
     })
   } catch (err) {
     dispatch({

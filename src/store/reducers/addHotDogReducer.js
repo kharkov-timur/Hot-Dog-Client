@@ -7,12 +7,13 @@ const initialState = {
   name: null,
   price: null,
   description: null,
-  image: null,
+  imgUrl: null,
 }
 
 const addHotDogReducer = (state = initialState, action) => {
   switch (action.type){
     case CREATE_PRODUCT:
+      console.log(action.payload)
       return {
         ...state,
         ...action.payload
