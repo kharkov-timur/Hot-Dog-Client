@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import CardProduct from '../components/Card/CardProduct'
 import classes from './Shop.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../store/actions/productAction'
+import CardProductForm from '../components/Card/CardProductForm'
 
 const Shop = () => {
   const dispatch = useDispatch()
@@ -20,8 +20,8 @@ const Shop = () => {
           : error
             ? error.message
             : products
-              .map((obj) => {
-                return <CardProduct key={obj.id} {...obj} />
+              .map((item) => {
+                return <CardProductForm key={item.id} item={item} />
               })}
     </div>
   )

@@ -1,13 +1,15 @@
 import {
   GET_PRODUCTS,
+  CREATE_PRODUCT,
   PRODUCT_ERROR,
-  POPUP
+  POPUP,
+  DELETE_PRODUCT, UPDATE_PRODUCT,
 } from '../types'
 
 const initialState = {
   products: [],
   loading: true,
-  showPopup: false
+  showPopup: false,
 }
 
 const productReducer = (state = initialState, action) => {
@@ -17,6 +19,22 @@ const productReducer = (state = initialState, action) => {
         ...state,
         products: action.payload,
         loading: false
+      }
+    case CREATE_PRODUCT:
+      return {
+        ...state,
+        products: [...state.products, action.payload]
+      }
+    case UPDATE_PRODUCT:
+      console.log(action.payload)
+      return {
+        ...state,
+        ...action.payload
+      }
+    case DELETE_PRODUCT:
+      return {
+        ...state,
+        ...action.payload
       }
     case PRODUCT_ERROR:
       return {

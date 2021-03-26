@@ -7,7 +7,9 @@ import { Field, reduxForm } from 'redux-form'
 const PopupForm = (props) => {
   const dispatch = useDispatch()
   const { showPopup } = useSelector(state => state.productsList)
-  const handleClose = () => dispatch(popup(false))
+  const handleClose = () => {
+    dispatch(popup(false))
+  }
 
   return (
     <Modal show={showPopup} onHide={handleClose}>
@@ -36,7 +38,7 @@ const PopupForm = (props) => {
             <Form.Label>Description</Form.Label>
             <Field className='form-control'
                    name='description'
-                   component='input'
+                   component='textarea'
                    type='text'
                    placeholder='description' />
           </Form.Group>
@@ -49,16 +51,13 @@ const PopupForm = (props) => {
                    placeholder='imgUrl' />
           </Form.Group>
           <div className='card-footer text-center'>
-            <button className='btn btn-secondary'
+            <div className='btn btn-secondary'
                     onClick={handleClose}
-            >No thanks
-            </button>
-            {' '}
+            >No thanks</div>{' '}
             <button className='btn btn-primary'
                     type='submit'
                     onClick={handleClose}>
-              Add
-            </button>
+              Add</button>
           </div>
         </form>
       </Modal.Body>
@@ -67,5 +66,5 @@ const PopupForm = (props) => {
 }
 
 export const PopupReduxForm = reduxForm({
-  form: 'form'
+  form: 'popup'
 })(PopupForm)
