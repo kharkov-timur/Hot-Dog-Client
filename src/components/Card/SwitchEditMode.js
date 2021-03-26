@@ -6,17 +6,18 @@ import { useDispatch } from 'react-redux'
 import { deleteHotDog } from '../../store/actions/productAction'
 
 const SwitchEditMode = (props) => {
-  const { id, name, price, description, imgUrl } = props.item
+  let { name, price, description, imgUrl } = props.initialValues
+  let { editMode, setEditMode, handleSubmit } = props
   const dispatch = useDispatch()
 
   const handleDelete = () => {
-    dispatch(deleteHotDog(id))
-    props.setEditMode(false)
+    dispatch(deleteHotDog(props.item.id))
+    setEditMode(false)
   }
 
-  if (props.editMode) {
+  if (editMode) {
     return (
-      <form onSubmit={props.handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <Form.Group controlId="formImg">
           <Form.Label>Images Url</Form.Label>
           <Field className='form-control'
@@ -33,7 +34,8 @@ const SwitchEditMode = (props) => {
                  component='input'
                  type='text'
                  placeholder='name'
-                 value={name} />
+                 value={name}
+          />
         </Form.Group>
         <Form.Group controlId="formPrice">
           <Form.Label>Price</Form.Label>
@@ -42,7 +44,8 @@ const SwitchEditMode = (props) => {
                  component='input'
                  type='text'
                  placeholder='price'
-                 value={price} />
+                 value={price}
+          />
         </Form.Group>
         <Form.Group controlId="formPrice">
           <Form.Label>Description</Form.Label>
@@ -51,7 +54,8 @@ const SwitchEditMode = (props) => {
                  component='textarea'
                  type='text'
                  placeholder='description'
-                 value={description} />
+                 value={description}
+          />
         </Form.Group>
 
         <div className={classes.btnBlock}>
@@ -79,7 +83,7 @@ const SwitchEditMode = (props) => {
         <Card.Text>{description}</Card.Text>
         <div className={classes.btnBlock}>
           <div className='btn btn-primary'
-               onClick={() => props.setEditMode(true)}>
+               onClick={() => setEditMode(true)}>
             Edit
           </div>
         </div>
@@ -89,5 +93,5 @@ const SwitchEditMode = (props) => {
 }
 
 export const CardProductReduxForm = reduxForm({
-  form: 'product'
+  form: 'product',
 })(SwitchEditMode)

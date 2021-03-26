@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import classes from './Shop.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../store/actions/productAction'
 import CardProductForm from '../components/Card/CardProductForm'
@@ -14,15 +13,17 @@ const Shop = () => {
   }, [dispatch])
 
   return (
-    <div className={classes.container}>
+    <div className='container'>
+      <div className='row'>
         {loading
           ? 'Loading...'
           : error
             ? error.message
-            : products
-              .map((item) => {
+            : products.map((item) => {
                 return <CardProductForm key={item.id} item={item} />
               })}
+      </div>
+
     </div>
   )
 }

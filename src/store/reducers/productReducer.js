@@ -1,9 +1,7 @@
 import {
-  GET_PRODUCTS,
-  CREATE_PRODUCT,
-  PRODUCT_ERROR,
-  POPUP,
-  DELETE_PRODUCT, UPDATE_PRODUCT,
+  CREATE_PRODUCT, DELETE_PRODUCT,
+  GET_PRODUCTS, POPUP,
+  PRODUCT_ERROR, UPDATE_PRODUCT
 } from '../types'
 
 const initialState = {
@@ -13,7 +11,7 @@ const initialState = {
 }
 
 const productReducer = (state = initialState, action) => {
-  switch (action.type){
+  switch (action.type) {
     case GET_PRODUCTS:
       return {
         ...state,
@@ -26,7 +24,6 @@ const productReducer = (state = initialState, action) => {
         products: [...state.products, action.payload]
       }
     case UPDATE_PRODUCT:
-      console.log(action.payload)
       return {
         ...state,
         ...action.payload

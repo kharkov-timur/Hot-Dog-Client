@@ -6,13 +6,13 @@ import { useDispatch } from 'react-redux'
 import { updateHotDog } from '../../store/actions/productAction'
 
 const CardProductForm = (props) => {
+  const dispatch = useDispatch()
+  let {id, name, price, description, imgUrl } = props.item
+
   const [editMode, setEditMode] = useState(false)
   const srcImg = props.item.imgUrl
 
-  const dispatch = useDispatch()
-
   const onSubmit = (data) => {
-    console.log(data)
     dispatch(updateHotDog(
       props.item.id,
       data.name,
@@ -27,9 +27,18 @@ const CardProductForm = (props) => {
     <Card className={classes.card}>
       <Card.Img variant='top' src={srcImg} />
       <Card.Body>
-        <CardProductReduxForm {...props} onSubmit={onSubmit}
-                              editMode={editMode}
-                              setEditMode={setEditMode} />
+        <CardProductReduxForm
+          {...props}
+          onSubmit={onSubmit}
+          editMode={editMode}
+          setEditMode={setEditMode}
+          initialValues={{
+            id,
+            name,
+            price,
+            description,
+            imgUrl
+          }} />
       </Card.Body>
     </Card>
   )
