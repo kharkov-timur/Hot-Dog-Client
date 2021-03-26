@@ -67,7 +67,7 @@ export const updateHotDog = (id, name, price, description, imgUrl) => async disp
 
 export const deleteHotDog = (id) => async dispatch => {
   try {
-    const res = await axios.delete(`http://localhost:5000/api/product/${id}`)
+    const res = await axios.delete(`https://shrouded-sea-08840.herokuapp.com/api/product/${id}`)
     dispatch({
       type: DELETE_PRODUCT,
       payload: res.data
