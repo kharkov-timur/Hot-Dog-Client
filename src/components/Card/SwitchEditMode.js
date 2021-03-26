@@ -6,9 +6,7 @@ import { useDispatch } from 'react-redux'
 import { deleteHotDog } from '../../store/actions/productAction'
 
 const SwitchEditMode = (props) => {
-
   const { id, name, price, description, imgUrl } = props.item
-
   const dispatch = useDispatch()
 
   const handleDelete = () => {

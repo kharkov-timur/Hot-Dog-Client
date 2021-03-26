@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap'
 import classes from './CardProduct.module.scss'
 import { CardProductReduxForm } from './SwitchEditMode'
 import { useDispatch } from 'react-redux'
-import { getProducts, updateHotDog } from '../../store/actions/productAction';
+import { updateHotDog } from '../../store/actions/productAction'
 
 const CardProductForm = (props) => {
   const [editMode, setEditMode] = useState(false)
@@ -20,7 +20,6 @@ const CardProductForm = (props) => {
       data.description,
       data.imgUrl
     ))
-    dispatch(getProducts())
     setEditMode(false)
   }
 
