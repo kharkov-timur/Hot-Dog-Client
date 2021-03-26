@@ -26,7 +26,7 @@ const CardProductForm = (props) => {
   return (
     <Card className={classes.card}>
       <Card.Img variant='top' src={srcImg} />
-      <Card.Body>
+      <Card.Body className={classes.card_body}>
         <CardProductReduxForm
           {...props}
           onSubmit={onSubmit}

@@ -1,8 +1,15 @@
 .card {
   width: 300px;
+  min-height: 500px;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 40px;
+
+  &_body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
 
   & .btnBlock {
     text-align: center;
