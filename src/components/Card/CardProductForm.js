@@ -7,7 +7,7 @@ import { updateHotDog } from '../../store/actions/productAction'
 
 const CardProductForm = (props) => {
   const dispatch = useDispatch()
-  let {id, name, price, description, imgUrl } = props.item
+  let { id, name, price, description, imgUrl } = props.item
 
   const [editMode, setEditMode] = useState(false)
   const srcImg = props.item.imgUrl
@@ -25,7 +25,7 @@ const CardProductForm = (props) => {
 
   return (
     <Card className={classes.card}>
-      <Card.Img variant='top' src={srcImg} />
+        <Card.Img variant={'top'} src={srcImg} />
       <Card.Body className={classes.card_body}>
         <CardProductReduxForm
           {...props}

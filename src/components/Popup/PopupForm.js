@@ -19,7 +19,7 @@ const PopupForm = (props) => {
       <Modal.Body>
         <form onSubmit={props.handleSubmit}>
           <Form.Group controlId="formName">
-            <Form.Label>Name</Form.Label>
+            {/*<Form.Label>Name</Form.Label>*/}
             <Field className='form-control'
                    name='name'
                    component='input'
@@ -27,7 +27,7 @@ const PopupForm = (props) => {
                    placeholder='name' />
           </Form.Group>
           <Form.Group controlId="formPrice">
-            <Form.Label>Price</Form.Label>
+            {/*<Form.Label>Price</Form.Label>*/}
             <Field className='form-control'
                    name='price'
                    component='input'
@@ -35,7 +35,7 @@ const PopupForm = (props) => {
                    placeholder='price' />
           </Form.Group>
           <Form.Group controlId="formDescription">
-            <Form.Label>Description</Form.Label>
+            {/*<Form.Label>Description</Form.Label>*/}
             <Field className='form-control'
                    name='description'
                    component='textarea'
@@ -43,7 +43,7 @@ const PopupForm = (props) => {
                    placeholder='description' />
           </Form.Group>
           <Form.Group controlId="formImage">
-            <Form.Label>Image</Form.Label>
+            {/*<Form.Label>Image</Form.Label>*/}
             <Field className='form-control'
                    name='imgUrl'
                    component='input'
